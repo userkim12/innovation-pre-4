@@ -8,7 +8,20 @@
     <link rel="stylesheet" href="/static/assets/css/reset.css">
     <link rel="stylesheet" href="/static/assets/css/animate.css">
     <link rel="stylesheet" href="/static/assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>짬뽕 추천기</title>
+    <script>
+        $(document).ready(function () {
+        show_luck();
+      });
+        function show_luck() {
+            fetch('/luck').then((res) => res.json()).then((data) => {
+              console.log(data['card1'])
+              console.log(data['card2'])
+              console.log(data['card3'])
+            })
+        }
+    </script>
 </head>
 
 <body>
