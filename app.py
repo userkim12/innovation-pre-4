@@ -1,12 +1,9 @@
 from flask import Flask, render_template, request, jsonify, make_response
-
-import lunch
-import advice
+import randomGetter
 import json
 import random
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
 
 @app.route('/')
 def show_home():
@@ -15,7 +12,7 @@ def show_home():
 
 @app.route('/lunch')
 def get_lunch():
-    food_name, img = lunch.get_random_lunch()
+    food_name, img = randomGetter.get_random_lunch()
     data = {
        'foodname': food_name,
        'img': img
@@ -27,7 +24,7 @@ def get_lunch():
 
 @app.route('/advice')
 def get_advice():
-    author, comment = advice.show_random_message()
+    author, comment = randomGetter.get_random_message()
     data = {
        'author': author,
        'comment': comment
