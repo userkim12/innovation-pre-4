@@ -1,12 +1,10 @@
 from flask import Flask, render_template, request, jsonify, make_response
-from pymongo import MongoClient
+
 import lunch
 import advice
 import json
 import random
 
-# client = MongoClient('')
-# db = client.dbsparta
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
