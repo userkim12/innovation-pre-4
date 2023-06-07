@@ -56,3 +56,42 @@ body::-webkit-scrollbar {
     0 10px 10px rgba(0, 0, 0, .2),
     0 20px 20px rgba(0, 0, 0, .15);
 }
+
+/* todays-luck 영역 */
+.todays-luck-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: burlywood;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* recommendation-lunch 영역 */
+.recommendation-lunch-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: darkseagreen;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* todays-advice 영역 */
+.todays-advice-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: darkgrey;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
