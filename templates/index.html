@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/templates/assets/css/reset.css">
-    <link rel="stylesheet" href="/templates/assets/css/animate.css">
-    <link rel="stylesheet" href="/templates/assets/css/style.css">
+    <link rel="stylesheet" href="/static/assets/css/reset.css">
+    <link rel="stylesheet" href="/static/assets/css/animate.css">
+    <link rel="stylesheet" href="/static/assets/css/style.css">
     <title>짬뽕 추천기</title>
 </head>
 
 <body>
     <div class="wrapper">
         <div class="container">
+
             <div class="welcome-page-area page-one">
                 <div class="content">
                     <h2 class="team-title">불4조참치찌개</h2>
@@ -23,14 +24,41 @@
                 </div>
             </div>
 
-            <div class="todays-luck-area page-two hide"></div>
+            <div class="todays-luck-area page-two hide">
+                <h3 class="title">오늘의 운세</h3>
+                <div class="flip left-card-area">
+                    <div class="card left-card">
+                        <div class="front"></div>
+                        <div class="back">
+                            <p id="left-content" class="luck-content">재수 더럽게 없습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip center-card-area">
+                    <div class="card center-card">
+                        <div class="front"></div>
+                        <div class="back">
+                            <p id="center-content" class="luck-content">재수 더럽게 없습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip right-card-area">
+                    <div class="card right-card">
+                        <div class="front"></div>
+                        <div class="back">
+                            <p id="right-content" class="luck-content">재수 더럽게 없습니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="recommendation-lunch-area page-three hide"></div>
             <div class="todays-advice-area page-four hide"></div>
         </div>
     </div>
 
-    <script src="/templates/assets/js/api.js"></script>
-    <script src="/templates/assets/js/main.js"></script>
+    <script src="/static/assets/js/api.js"></script>
+    <script src="/static/assets/js/main.js"></script>
 </body>
 
 </html>
