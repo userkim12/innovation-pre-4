@@ -1,3 +1,6 @@
+const slideBox = document.querySelector(`.slide-box`);
+const lunchToggle = document.querySelector(`.recommendation-lunch-area .toggle-btn`);
+
 const MIN_CURRENT_PAGE = 0;
 const MAX_CURRENT_PAGE = 3;
 let currentPage = 0;
@@ -51,3 +54,19 @@ function nextPage() {
     nextPage.classList.add("animate__animated", "animate__fadeInUp", "animate__fast");
   }
 }
+
+
+
+lunchToggle.addEventListener("click", () => {
+  if (slideBox.style.animationPlayState !== "paused") {
+    slideBox.style.animationPlayState = "paused";
+    lunchToggle.innerText = "start"
+  } else {
+    slideBox.style.animationPlayState = "running";
+    lunchToggle.innerText = "stop"
+  }
+})
+
+setInterval(() => {
+  console.log(slideBox.style.transform)
+}, 1000);
