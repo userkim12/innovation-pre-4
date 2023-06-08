@@ -29,5 +29,22 @@ def get_random_lunch():
     return random_foodname, random_img
 
 
+def get_random_luck():
+    seed = int(time.time())
+    random.seed(seed)
+
+    random_id = random.sample(range(1,100),3)
+
+    random_data1 = db.lucks.find_one({'id':random_id[0]}, {'_id':False})
+    random_data2 = db.lucks.find_one({'id':random_id[1]}, {'_id':False})
+    random_data3 = db.lucks.find_one({'id':random_id[2]}, {'_id':False})
+
+    random_card1 = random_data1['luck']
+    random_card2 = random_data2['luck']
+    random_card3 = random_data3['luck']
+
+    return random_card1,random_card2,random_card3
+
+
 # show_random_message()
 # get_random_lunch()
