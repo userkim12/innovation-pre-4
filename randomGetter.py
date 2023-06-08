@@ -21,12 +21,12 @@ def get_random_lunch():
     seed = int(time.time())
     random.seed(seed)
 
-    random_id = random.choice(range(1,15))
-    random_data = db.lunchs.find_one({'id':random_id}, {'_id':False})
-    random_foodname = random_data['foodname']
-    random_img = random_data['img']
-    
-    return random_foodname, random_img
+    random_ids = random.sample(range(1, 15), 10)  
+    random_data = db.lunchs.find({'id': {'$in': random_ids}}, {'_id': False})  
+    random_results = [(data['foodname'], data['img']) for data in random_data] 
+
+
+    return random_results
 
 
 def get_random_luck():

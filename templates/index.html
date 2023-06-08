@@ -12,24 +12,56 @@
     <title>짬뽕 추천기</title>
     <script>
         $(document).ready(function () {
-        show_luck();
-      });
+            show_luck();
+            get_advice();
+            get_lunch();
+        });
         function show_luck() {
             $('#left-content').empty()
             $('#center-content').empty()
             $('#right-content').empty()
             fetch('/luck').then((res) => res.json()).then((data) => {
-              let card1 = data['card1']
-              let card2 = data['card2']
-              let card3 = data['card3']
+                let card1 = data['card1']
+                let card2 = data['card2']
+                let card3 = data['card3']
 
-              temp_html1 = `<p id="left-content" class="luck-content">${card1}</p>`
-              temp_html2 = `<p id="center-content" class="luck-content">${card2}</p>`
-              temp_html3 = `<p id="right-content" class="luck-content">${card3}</p>`
+                temp_html1 = `<p id="left-content" class="luck-content">${card1}</p>`
+                temp_html2 = `<p id="center-content" class="luck-content">${card2}</p>`
+                temp_html3 = `<p id="right-content" class="luck-content">${card3}</p>`
 
-              $('#left-content').append(temp_html1)
-              $('#center-content').append(temp_html2)
-              $('#right-content').append(temp_html3)
+                $('#left-content').append(temp_html1)
+                $('#center-content').append(temp_html2)
+                $('#right-content').append(temp_html3)
+            })
+        }
+
+        function get_advice() {
+            $('#advice-content').empty()
+            fetch('/advice').then((res) => res.json()).then((data) => {
+                let author = data['author']
+                let comment = data['comment']
+
+                temp_html_advice = `<div id="advice-content" class="content">${comment}<p>-${author}-</p></div>`
+
+                $('#advice-content').append(temp_html_advice)
+            })
+        }
+
+        function get_lunch() {
+            fetch('/lunch').then((res) => res.json()).then((data) => {
+                let rows = data
+                $('#slide-box').empty()
+                rows.forEach((a)=>{
+                    let foodname = a['foodname']
+                    let img = a['img']
+                    
+                    let temp_html = `<li>
+                                    <img class="menu-img" src="${img}">
+                                    <p class="menu-title">${foodname}</p>
+                                     </li>`
+
+                    $('#slide-box').append(temp_html)
+                })
             })
         }
     </script>
@@ -79,7 +111,7 @@
             <div class="recommendation-lunch-area page-three hide">
                 <h3 class="title">점심 메뉴 추천</h3>
                 <div class="container">
-                    <ul class="slide-box">
+                    <ul class="slide-box" id="slide-box">
                         <li id="menu1">
                             <img class="menu-img" src="/static/assets/images/menu.webp">
                             <p class="menu-title">치킨</p>

@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, jsonify, make_response
 import randomGetter
 import json
-import random
 
 app = Flask(__name__)
 
@@ -12,14 +11,18 @@ def show_home():
 
 @app.route('/lunch')
 def get_lunch():
-    food_name, img = randomGetter.get_random_lunch()
-    data = {
-       'foodname': food_name,
-       'img': img
-    }
+    random_results = randomGetter.get_random_lunch()
+    
+    data = []
+    for food_name, img in random_results:
+        data.append({
+            'foodname': food_name,
+            'img': img
+        })
 
     result = make_response(json.dumps(data, ensure_ascii=False, indent=4))
     return result
+
 
 
 @app.route('/advice')
