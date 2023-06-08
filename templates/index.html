@@ -15,10 +15,21 @@
         show_luck();
       });
         function show_luck() {
+            $('#left-content').empty()
+            $('#center-content').empty()
+            $('#right-content').empty()
             fetch('/luck').then((res) => res.json()).then((data) => {
-              console.log(data['card1'])
-              console.log(data['card2'])
-              console.log(data['card3'])
+              let card1 = data['card1']
+              let card2 = data['card2']
+              let card3 = data['card3']
+
+              temp_html1 = `<p id="left-content" class="luck-content">${card1}</p>`
+              temp_html2 = `<p id="center-content" class="luck-content">${card2}</p>`
+              temp_html3 = `<p id="right-content" class="luck-content">${card3}</p>`
+
+              $('#left-content').append(temp_html1)
+              $('#center-content').append(temp_html2)
+              $('#right-content').append(temp_html3)
             })
         }
     </script>
